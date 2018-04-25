@@ -3,7 +3,7 @@ public class hmk3
 	public static void main ( String[] args )
 	{
 		// small test graph, comment in to test
-		/*
+
 		person t1 = new person( 9, 10, 4.25 );
 		person t2 = new person( 18, 34, 12.94 );
 		person t3 = new person( 29, 21, 5.08 );
@@ -20,7 +20,7 @@ public class hmk3
 		test.generateroutes();
 		test.mst( t3 );
 		test.printresult();
-		*/
+
 		// small test graph should print:
 		/*
 		SOLUTION:
@@ -110,5 +110,6 @@ public class hmk3
 		mygraph.generateroutes();
 		mygraph.mst( p12 );
 		mygraph.printresult();
+
 	}
 }

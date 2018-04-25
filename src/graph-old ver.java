@@ -3,7 +3,8 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
-/* FIXME Delete this** public class graph
+/* FIXME Delete this line to use old incomplete file
+public class graph
 {
 	int dim;
 	HashMap<person, HashMap<person, route>> matrix;

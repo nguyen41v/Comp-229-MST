@@ -3,6 +3,7 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
+/* FIXME Delete this line to use incomplete new graph file
 public class graph
 {
 	static int dim;
@@ -62,7 +63,7 @@ public class graph
 	// use Prim's algorithm
 	public void mst( person start )
 	{
-		// deep copy of original matrix //FIXME not really a deep copy in new code. . .
+		// deep copy of original matrix
 		HashMap<person, HashMap<person, route>> tempmatrix = generateUnknown();
 		// set of unknown persons from original matrix
 		Set<person> unknown = tempmatrix.keySet();
@@ -71,16 +72,7 @@ public class graph
 
 		person current = start;  // the newest known vertex
 		person leastvertex = null;  // smallest unknown weight seen in an iteration
-		// I don't think I need this so I commeneted it out tempmatrix.get( current ).get( current ).put( new route (0.0));  // setting starting point distance to 0
-
-		// initialize Prim's algorithm
-		// add start to known set
-		known.add(current);
-
-		// remove start from unknown set
-		unknown.remove(current);
-
-
+		tempmatrix.get( current ).get( current ).setDistance( 0.0 );  // setting starting point distance to 0
 		while ( !unknown.isEmpty() )
 		{
 			// in case you need this: Double.MAX_VALUE is the maximum value of a double defined in Java, use this instead of the usual "999" we usually use
@@ -90,39 +82,14 @@ public class graph
 
 			// YOUR CODE HERE!!!
 
-			// Double.MAX_VALUE is the maximum value of a double defined in Java, use this instead of the usual "999" we usually use
-
-			double minDistance = Double.MAX_VALUE; // Biggest number in java; compare route distances to this initially
-
-			// iterate through known->unknown edges
-			for (person currentPerson : known) {
-				// System.out.println("printing current"); // debugging
-				for (person unknownPerson : unknown) {
-					// System.out.println("printing know"); // debugging
-					double routeDistance = matrix.get(currentPerson).get(unknownPerson).distance;
-
-					// update unknown edge distances with lesser distances
-					if (routeDistance < minDistance) { // check whether new unknown distance is the smallest seen so far
-						minDistance = routeDistance;
-						current = currentPerson;
-						leastvertex = unknownPerson;
-					}
-				}
-			}
-			// printresult(); // debugging
-			// check whether a leastvertex was found, then //FIXME don't need it with my code ordering :) since unknown will be empty when done
-
-			// update result
-			result.get(current).put(leastvertex, matrix.get(current).get(leastvertex));
-
-			// set current to the newest unknown/leastvertex
-			current = leastvertex;
-
 			// add current to known set
-			known.add(current);
-
 			// remove current from unknown set
-			unknown.remove(current);
+			// iterate through known->unknown edges
+				// update unknown edge distances with lesser distances
+				// check whether new unknown distance is the smallest seen so far
+			// check whether a leastvertex was found, then update result
+				// set current to the newest unknown/leastvertex
+
 		}
 	}
 
@@ -139,7 +106,7 @@ public class graph
 			for ( Map.Entry<person, route> F : (E.getValue()).entrySet() )
 			{
 				// copy constructor of route used here
-				copy.get( E.getKey() ).put( F.getKey(), F.getValue() );
+				copy.get( E.getKey() ).put( F.getKey(), new route( F.getValue() ) );
 			}
 		}
 
@@ -207,3 +174,4 @@ public class graph
 		System.out.println( "t " + totalweight );
 	}
 }
+*/
